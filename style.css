@@ -1,0 +1,168 @@
+:root {
+  --main-c: #5977b8;
+  --black-c: #000;
+}
+
+/** Estilos Generales **/
+html {
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+/* Enlaces & Botones*/
+
+.boton-pedido {
+  background-color: var(--main-c);
+  padding: 1rem 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 2px;
+}
+
+/* menu header */
+
+ul.menu {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+ul.menu #menu-item-contacto {
+  display: flex;
+  align-items: center;
+  padding: .5rem 1rem;
+  background-color: var(--main-c);
+  color: #fff;
+}
+
+li.menu-item {
+  margin: .75rem;
+}
+
+li.menu-item a {
+  padding: .5rem 1rem;
+  color: #fff;
+}
+
+li.menu-item a:hover {
+  color: var(--main-c);
+}
+
+/* Imagen de Fondo */
+
+.img-fondo {
+  background: #000428;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #004e92, #000428);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #004e92, #000428);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.home-page-section {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page {
+  color: #fff;
+  text-align: center;
+  width: 50%;
+}
+
+.home-page p {
+  margin-bottom: 4rem;
+}
+
+.carta {
+  margin-left: 1rem;
+}
+
+.mercaderias img {
+  width: 300px;
+  height: 300px;
+  border-radius: 1rem;
+}
+
+.mercaderias p {
+  margin: 0.6rem;
+}
+
+.mercaderias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.mercaderias>div {
+  margin: 1.5rem;
+  background-color: var(--black-c);
+  color: white;
+  border: 0.5rem solid var(--black-c);
+  border-radius: 1rem;
+}
+
+.button {
+  font-family: 'Outfit', sans-serif;
+  background-color: white;
+  color: black;
+  border: 2px solid var(--main-c);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--main-c);
+  color: white;
+}
+
+#search {
+  background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 0px 5px;
+  background-size: 24px;
+  width: 500px;
+  border: transparent;
+  border-bottom: solid 1px #ccc;
+  padding: 10px 10px 10px 30px;
+  outline: none;
+}

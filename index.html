@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante el Alba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="img-fondo">
+        <header class="header">
+            <ul class="menu" id="menu-list">
+                <li class="menu-item"><a href="">Inicio</a></li>
+                <li class="menu-item"><a href="">Nosotros</a></li>
+                <li class="menu-item"><a href="">Carta</a></li>
+                <li id="menu-item-contacto" class="menu-item"><a href="">Contacto</a></li>
+            </ul>
+        </header>
+
+        <main id="main" class="main">
+            <section class="home-page-section">
+                <div class="home-page">
+                    <h1>Restaurante el Alba</h1>
+                    <p>¡Bienvenido a nuestro restaurante. Sumérgete en una experiencia culinaria única que combina
+                        sabores auténticos, ambiente acogedor y un servicio excepcional.</p>
+                    <a href="" class="boton-pedido">Hacer un pedido</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <section class="carta">
+
+        <h2>Menu de Mercaderias</h2>
+
+        <div class="box">
+            <input type="search" id="search" placeholder="Busca tu comida" onkeypress="handleKeyPress(event)" />
+        </div>
+
+        <div class="nav-botones">
+            <button onclick="buscarMercaderias()" class="button button1">Todos</button>
+            <button onclick="filtradoPorTipo(1)" class="button button2">Entradas</button>
+            <button onclick="filtradoPorTipo(2)" class="button button3">Minutas</button>
+            <button onclick="filtradoPorTipo(3)" class="button button4">Pastas</button>
+            <button onclick="filtradoPorTipo(4)" class="button button5">Parrilla</button>
+            <button onclick="filtradoPorTipo(5)" class="button button6">Pizzas</button>
+            <button onclick="filtradoPorTipo(6)" class="button button7">Sandwich</button>
+            <button onclick="filtradoPorTipo(7)" class="button button8">Ensaladas</button>
+            <button onclick="filtradoPorTipo(8)" class="button button9">Bebidas</button>
+            <button onclick="filtradoPorTipo(9)" class="button button10">Cerveza Artesanal</button>
+            <button onclick="filtradoPorTipo(10)" class="button button11">Postres</button>
+        </div>
+
+        <div id="mercaderias" class="mercaderias"></div>
+    </section>
+
+    <script>
+
+        function handleKeyPress(event) {
+            if (event.keyCode === 13) {
+                filtradoPorNombre();
+            }
+        }
+
+        function filtradoPorTipo(posicion) {
+            let tipos = document.getElementsByClassName("nav-botones");
+
+            fetch(`https://localhost:7194/api/v1/Mercaderia?tipo=${posicion}`)
+                .then(res => res.json())
+                .then(response => {
+                    imprimirMercaderias(response);
+                });
+        }
+
+        function filtradoPorNombre() {
+            let nombreMercaderia = document.getElementById("search").value;
+
+            fetch(`https://localhost:7194/api/v1/Mercaderia?nombre=${nombreMercaderia}`)
+                .then(res => res.json())
+                .then(response => {
+                    imprimirMercaderias(response);
+                });
+        }
+
+        function buscarMercaderias() {
+            fetch("https://localhost:7194/api/v1/Mercaderia")
+                .then(res => res.json())
+                .then(response => {
+                    imprimirMercaderias(response);
+                });
+        }
+
+        function imprimirMercaderias(mercaderias) {
+
+            let mercaderiasContainer = document.getElementById("mercaderias");
+
+            mercaderiasContainer.innerHTML = "";
+
+            mercaderias.forEach(mercaderia => {
+                let nombre = document.createElement("p");
+                nombre.innerText = mercaderia.nombre;
+
+                let tipo = document.createElement("p");
+                tipo.innerText = "Categoria: " + mercaderia.tipo.descripcion;
+
+                let precio = document.createElement("p");
+                precio.innerText = "Precio: $ " + mercaderia.precio;
+
+                let imagen = document.createElement("img");
+                imagen.setAttribute("src", mercaderia.imagen);
+
+                let mercaderiaDiv = document.createElement("div");
+                mercaderiaDiv.appendChild(nombre);
+                mercaderiaDiv.appendChild(tipo);
+                mercaderiaDiv.appendChild(precio);
+                mercaderiaDiv.appendChild(imagen);
+
+                mercaderiasContainer.appendChild(mercaderiaDiv);
+            });
+        }
+
+        // Llamar a la función buscarMercaderias() al cargar la página
+        buscarMercaderias();
+    </script>
+
+</body>
+
+</html>
