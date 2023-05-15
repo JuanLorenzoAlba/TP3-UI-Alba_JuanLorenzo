@@ -39,95 +39,27 @@
         <h2>Menu de Mercaderias</h2>
 
         <div class="box">
-            <input type="search" id="search" placeholder="Busca tu comida" onkeypress="handleKeyPress(event)" />
+            <input type="search" id="search" placeholder="Busca tu comida" />
         </div>
 
         <div class="nav-botones">
-            <button onclick="buscarMercaderias()" class="button button1">Todos</button>
-            <button onclick="filtradoPorTipo(1)" class="button button2">Entradas</button>
-            <button onclick="filtradoPorTipo(2)" class="button button3">Minutas</button>
-            <button onclick="filtradoPorTipo(3)" class="button button4">Pastas</button>
-            <button onclick="filtradoPorTipo(4)" class="button button5">Parrilla</button>
-            <button onclick="filtradoPorTipo(5)" class="button button6">Pizzas</button>
-            <button onclick="filtradoPorTipo(6)" class="button button7">Sandwich</button>
-            <button onclick="filtradoPorTipo(7)" class="button button8">Ensaladas</button>
-            <button onclick="filtradoPorTipo(8)" class="button button9">Bebidas</button>
-            <button onclick="filtradoPorTipo(9)" class="button button10">Cerveza Artesanal</button>
-            <button onclick="filtradoPorTipo(10)" class="button button11">Postres</button>
+            <button class="button button1">Todos</button>
+            <button class="button button2">Entradas</button>
+            <button class="button button3">Minutas</button>
+            <button class="button button4">Pastas</button>
+            <button class="button button5">Parrilla</button>
+            <button class="button button6">Pizzas</button>
+            <button class="button button7">Sandwich</button>
+            <button class="button button8">Ensaladas</button>
+            <button class="button button9">Bebidas</button>
+            <button class="button button10">Cerveza Artesanal</button>
+            <button class="button button11">Postres</button>
         </div>
 
         <div id="mercaderias" class="mercaderias"></div>
     </section>
 
-    <script>
-
-        function handleKeyPress(event) {
-            if (event.keyCode === 13) {
-                filtradoPorNombre();
-            }
-        }
-
-        function filtradoPorTipo(posicion) {
-            let tipos = document.getElementsByClassName("nav-botones");
-
-            fetch(`https://localhost:7194/api/v1/Mercaderia?tipo=${posicion}`)
-                .then(res => res.json())
-                .then(response => {
-                    imprimirMercaderias(response);
-                });
-        }
-
-        function filtradoPorNombre() {
-            let nombreMercaderia = document.getElementById("search").value;
-
-            fetch(`https://localhost:7194/api/v1/Mercaderia?nombre=${nombreMercaderia}`)
-                .then(res => res.json())
-                .then(response => {
-                    imprimirMercaderias(response);
-                });
-        }
-
-        function buscarMercaderias() {
-            fetch("https://localhost:7194/api/v1/Mercaderia")
-                .then(res => res.json())
-                .then(response => {
-                    imprimirMercaderias(response);
-                });
-        }
-
-        function imprimirMercaderias(mercaderias) {
-
-            let mercaderiasContainer = document.getElementById("mercaderias");
-
-            mercaderiasContainer.innerHTML = "";
-
-            mercaderias.forEach(mercaderia => {
-                let nombre = document.createElement("p");
-                nombre.innerText = mercaderia.nombre;
-
-                let tipo = document.createElement("p");
-                tipo.innerText = "Categoria: " + mercaderia.tipo.descripcion;
-
-                let precio = document.createElement("p");
-                precio.innerText = "Precio: $ " + mercaderia.precio;
-
-                let imagen = document.createElement("img");
-                imagen.setAttribute("src", mercaderia.imagen);
-
-                let mercaderiaDiv = document.createElement("div");
-                mercaderiaDiv.appendChild(nombre);
-                mercaderiaDiv.appendChild(tipo);
-                mercaderiaDiv.appendChild(precio);
-                mercaderiaDiv.appendChild(imagen);
-
-                mercaderiasContainer.appendChild(mercaderiaDiv);
-            });
-        }
-
-        // Llamar a la función buscarMercaderias() al cargar la página
-        buscarMercaderias();
-    </script>
+    <script src="./src/views/main.js" type="module"></script>
 
 </body>
-
 </html>
