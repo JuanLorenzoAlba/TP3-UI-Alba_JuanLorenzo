@@ -7,6 +7,15 @@ const getMercaderia = async () => {
     return result;
 };
 
+const getMercaderiaById = async (id) => {
+    let result = [];
+    let response = await fetch(`https://localhost:7194/api/v1/Mercaderia/${id}`);
+    if (response.ok) {
+        result = await response.json();
+    }
+    return result;
+};
+
 const getMercaderiaByTipo = async (posicion) => {
     let result = [];
     let response = await fetch(`https://localhost:7194/api/v1/Mercaderia?tipo=${posicion}`);
@@ -27,6 +36,7 @@ const getMercaderiaByNombre = async (nombreMercaderia) => {
 
 const mercaderiaApi = {
     GetMercaderia: getMercaderia,
+    GetMercaderiaById: getMercaderiaById,
     GetMercaderiaByTipo: getMercaderiaByTipo,
     GetMercaderiaByNombre: getMercaderiaByNombre
 };
