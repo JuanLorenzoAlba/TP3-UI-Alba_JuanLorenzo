@@ -239,6 +239,11 @@ li.menu-item a:hover {
   border-radius: 1rem;
 }
 
+.pedidos {
+  display: none;
+  margin-left: 1rem;
+}
+
 .pedidos > div {
   padding: 16px;
   text-align: center;
@@ -247,6 +252,30 @@ li.menu-item a:hover {
 }
 
 .pedidos img{
+  position: relative;
+  display: inline-block;
   width: 100px;
   height: 100px;
+}
+
+.pedidos > div button {
+  position: relative;
+  right: 20px;
+  bottom: 86px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  border: none;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pedidos div button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
 }

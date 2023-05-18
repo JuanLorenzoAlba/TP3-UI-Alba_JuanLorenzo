@@ -69,8 +69,13 @@ function imprimirMercaderias(mercaderias) {
         preparacion.innerHTML = `Preparación: <br>${mercaderias.preparacion}`;
       });
 
+      let botonEliminarMercaderia = document.createElement("button");
+      botonEliminarMercaderia.innerText = "x";
+      botonEliminarMercaderia.setAttribute("id", "mi-boton-eliminar");
+
       let mercaderiaPedidosDiv= document.createElement("div");
       mercaderiaPedidosDiv.appendChild(imagen.cloneNode(true));
+      mercaderiaPedidosDiv.appendChild(botonEliminarMercaderia);
 
       mercaderiaPedidosContainer.appendChild(mercaderiaPedidosDiv);
     });
