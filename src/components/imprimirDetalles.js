@@ -1,5 +1,10 @@
-function imprimirDetalles(boton){
-    boton.addEventListener("click", () => {
+import mercaderiaApi from "../services/mercaderiaApi.js";
+
+function imprimirDetalles(mercaderia,nombre,tipo,precio,imagen,botonDetalles) {
+
+    let mercaderiaDetallesContainer = document.getElementById("detalles-mercaderia");
+
+    botonDetalles.addEventListener("click", () => {
         mercaderiaDetallesContainer.innerHTML = "";
   
         let ingredientes = document.createElement("p");
@@ -22,4 +27,7 @@ function imprimirDetalles(boton){
   
         mercaderiaDetallesContainer.appendChild(mercaderiaDetallesDiv);
       });
+
 }
+
+export default imprimirDetalles;

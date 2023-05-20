@@ -8,7 +8,7 @@ function quitarMercaderiaPedido() {
       divPadre.parentNode.removeChild(divPadre);
 
       // Verificar si no hay elementos div dentro de la sección "pedidos"
-      if (detallesContainer.childElementCount === 2) {
+      if (detallesContainer.childElementCount === 3) {
         // Realizar la acción deseada cuando no hay elementos div
         pedidos.style.display = "none";
         // Aquí puedes agregar el código que deseas ejecutar

@@ -28,7 +28,7 @@
                     <h1>Restaurante el Alba</h1>
                     <p>¡Bienvenido a nuestro restaurante! Sumérgete en una experiencia culinaria única que combina
                         sabores auténticos, ambiente acogedor y un servicio excepcional.</p>
-                    <a href="#carta" id= "boton-pedido" class="boton-pedido">Hacer un pedido</a>
+                    <a href="#carta" id="boton-pedido" class="boton-pedido">Hacer un pedido</a>
                 </div>
             </section>
         </main>
@@ -36,7 +36,17 @@
 
     <section id="pedidos" class="pedidos">
         <h2>Pedidos Realizados</h2>
-        <p>Precio Total</p>
+        <p id="precio">0</p>
+        <button id="crear-comanda">Realizar Pedido</button>
+        
+        <section class="forma-entrega">
+            <input type="radio" name="forma1" value="1">Salon<br>
+    
+            <input type="radio" name="forma1" value="2" checked>Delivery<br>
+    
+            <input type="radio" name="forma1" value="3">Pedidos Ya
+        </section>
+
 
     </section>
 
@@ -71,4 +81,5 @@
     <script src="./src/views/main.js" type="module"></script>
 
 </body>
+
 </html>

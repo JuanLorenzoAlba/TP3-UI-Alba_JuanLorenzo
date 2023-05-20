@@ -6,6 +6,7 @@ import filtros from "../event/filtros.js";
 import detallesMercaderia from "../event/detallesMercaderia.js";
 import pedidoMercaderia from "../event/pedidoMercaderia.js";
 import quitarMercaderiaPedido from "../event/quitarMercaderiaPedido.js";
+import hacerUnaComanda from "../event/hacerUnaComanda.js";
 
 // Logica del boton de "hacer un pedido"
 hacerUnPedido();
@@ -28,4 +29,7 @@ pedidoMercaderia();
 
 //Logica para quitar una mercaderia de un pedido
 quitarMercaderiaPedido();
+
+//Logica para hacer una comanda
+hacerUnaComanda();
 

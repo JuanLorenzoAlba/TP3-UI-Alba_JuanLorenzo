@@ -1,10 +1,10 @@
-import mercaderiaApi from "../services/mercaderiaApi.js";
+import imprimirDetalles from "./imprimirDetalles.js";
+import imprimirPedidos from "./imprimirPedidos.js";
 
 function imprimirMercaderias(mercaderias) {
-  let mercaderiasContainer = document.getElementById("mercaderias");
-  let mercaderiaDetallesContainer = document.getElementById("detalles-mercaderia");
-  let mercaderiaPedidosContainer = document.getElementById("pedidos");
 
+  let mercaderiasContainer = document.getElementById("mercaderias");
+  
   if (mercaderias.length === 0) {
     return; // No hay mercaderías, no se imprime nada
   } else {
@@ -28,57 +28,13 @@ function imprimirMercaderias(mercaderias) {
     botonDetalles.innerText = "Detalles";
     botonDetalles.setAttribute("id", "mi-boton-detalles");
 
-    botonDetalles.addEventListener("click", () => {
-      mercaderiaDetallesContainer.innerHTML = "";
-
-      let ingredientes = document.createElement("p");
-      mercaderiaApi.GetMercaderiaById(mercaderia.id).then(mercaderias => {
-        ingredientes.innerHTML = `Ingredientes: <br>${mercaderias.ingredientes}`;
-      });
-
-      let preparacion = document.createElement("p");
-      mercaderiaApi.GetMercaderiaById(mercaderia.id).then(mercaderias => {
-        preparacion.innerHTML = `Preparación: <br>${mercaderias.preparacion}`;
-      });
-
-      let mercaderiaDetallesDiv = document.createElement("div");
-      mercaderiaDetallesDiv.appendChild(nombre.cloneNode(true));
-      mercaderiaDetallesDiv.appendChild(tipo.cloneNode(true));
-      mercaderiaDetallesDiv.appendChild(precio.cloneNode(true));
-      mercaderiaDetallesDiv.appendChild(imagen.cloneNode(true));
-      mercaderiaDetallesDiv.appendChild(ingredientes);
-      mercaderiaDetallesDiv.appendChild(preparacion);
-
-      mercaderiaDetallesContainer.appendChild(mercaderiaDetallesDiv);
-    });
+    imprimirDetalles(mercaderia,nombre,tipo,precio,imagen,botonDetalles)
 
     let botonPedido = document.createElement("button");
     botonPedido.innerText = "Pedir";
     botonPedido.setAttribute("id", "mi-boton-pedido");
 
-    botonPedido.addEventListener("click", () => {
-      mercaderiaDetallesContainer.innerHTML = "";
-
-      let ingredientes = document.createElement("p");
-      mercaderiaApi.GetMercaderiaById(mercaderia.id).then(mercaderias => {
-        ingredientes.innerHTML = `Ingredientes: <br>${mercaderias.ingredientes}`;
-      });
-
-      let preparacion = document.createElement("p");
-      mercaderiaApi.GetMercaderiaById(mercaderia.id).then(mercaderias => {
-        preparacion.innerHTML = `Preparación: <br>${mercaderias.preparacion}`;
-      });
-
-      let botonEliminarMercaderia = document.createElement("button");
-      botonEliminarMercaderia.innerText = "x";
-      botonEliminarMercaderia.setAttribute("id", "mi-boton-eliminar");
-
-      let mercaderiaPedidosDiv= document.createElement("div");
-      mercaderiaPedidosDiv.appendChild(imagen.cloneNode(true));
-      mercaderiaPedidosDiv.appendChild(botonEliminarMercaderia);
-
-      mercaderiaPedidosContainer.appendChild(mercaderiaPedidosDiv);
-    });
+    imprimirPedidos(mercaderia.id,mercaderia.precio,imagen,botonPedido)
 
     let mercaderiaDiv = document.createElement("div");
     mercaderiaDiv.appendChild(nombre);

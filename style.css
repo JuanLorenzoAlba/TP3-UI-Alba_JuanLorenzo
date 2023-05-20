@@ -258,7 +258,7 @@ li.menu-item a:hover {
   height: 100px;
 }
 
-.pedidos > div button {
+#mi-boton-eliminar {
   position: relative;
   right: 20px;
   bottom: 86px;
@@ -275,7 +275,17 @@ li.menu-item a:hover {
   cursor: pointer;
 }
 
-.pedidos div button:hover {
+#mi-boton-eliminar:hover {
   background-color: #4CAF50; /* Green */
   color: white;
+}
+
+#crear-comanda{
+  display: block;
+  padding: 0.5rem 1rem;
+  width: 200px;
+}
+
+.forma-entrega{
+  display: block;
 }
