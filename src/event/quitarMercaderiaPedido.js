@@ -1,5 +1,6 @@
 function quitarMercaderiaPedido() {
   const detallesContainer = document.getElementById("pedidos");
+  const precio = document.getElementById("precio");
 
   detallesContainer.addEventListener("click", function (event) {
     if (event.target.matches("#mi-boton-eliminar")) {
@@ -8,10 +9,8 @@ function quitarMercaderiaPedido() {
       divPadre.parentNode.removeChild(divPadre);
 
       // Verificar si no hay elementos div dentro de la sección "pedidos"
-      if (detallesContainer.childElementCount === 3) {
-        // Realizar la acción deseada cuando no hay elementos div
-        pedidos.style.display = "none";
-        // Aquí puedes agregar el código que deseas ejecutar
+      if (detallesContainer.childElementCount === 0) {
+        precio.style.display = "none";
       }
     }
   });

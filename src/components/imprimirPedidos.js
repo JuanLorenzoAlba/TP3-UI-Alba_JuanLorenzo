@@ -1,6 +1,6 @@
 let monto = 0;
 
-function imprimirPedidos(id,precio, imagen, botonPedido) {
+function imprimirPedidos(id,precio,nombre, botonPedido) {
 
   let mercaderiaPedidosContainer = document.getElementById("pedidos");
   let precioTotal = document.getElementById("precio");
@@ -11,6 +11,14 @@ function imprimirPedidos(id,precio, imagen, botonPedido) {
     let botonEliminarMercaderia = document.createElement("button");
     botonEliminarMercaderia.innerText = "x";
     botonEliminarMercaderia.setAttribute("id", "mi-boton-eliminar");
+
+    let precioPedido = document.createElement("p");
+    precioPedido.innerText = "$ " + precio;
+    precioPedido.setAttribute("id", "precio-pedido");
+
+    let nombrePedido = document.createElement("p");
+    nombrePedido.innerText = nombre
+    nombrePedido.setAttribute("id","nombre-pedido");
 
     monto += precio
 
@@ -29,7 +37,8 @@ function imprimirPedidos(id,precio, imagen, botonPedido) {
     let mercaderiaPedidosDiv = document.createElement("div");
     mercaderiaPedidosDiv.setAttribute("id", id);
 
-    mercaderiaPedidosDiv.appendChild(imagen.cloneNode(true));
+    mercaderiaPedidosDiv.appendChild(nombrePedido);
+    mercaderiaPedidosDiv.appendChild(precioPedido);
     mercaderiaPedidosDiv.appendChild(botonEliminarMercaderia);
 
     mercaderiaPedidosContainer.appendChild(mercaderiaPedidosDiv);

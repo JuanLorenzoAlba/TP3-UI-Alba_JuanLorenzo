@@ -14,6 +14,7 @@ function imprimirMercaderias(mercaderias) {
   mercaderias.forEach(mercaderia => {
     let nombre = document.createElement("p");
     nombre.innerText = mercaderia.nombre;
+    nombre.setAttribute("id","nombre-mercaderia");
 
     let tipo = document.createElement("p");
     tipo.innerText = "Categoria: " + mercaderia.tipo.descripcion;
@@ -28,13 +29,13 @@ function imprimirMercaderias(mercaderias) {
     botonDetalles.innerText = "Detalles";
     botonDetalles.setAttribute("id", "mi-boton-detalles");
 
-    imprimirDetalles(mercaderia,nombre,tipo,precio,imagen,botonDetalles)
+    imprimirDetalles(mercaderia,tipo,precio,imagen,botonDetalles)
 
     let botonPedido = document.createElement("button");
     botonPedido.innerText = "Pedir";
     botonPedido.setAttribute("id", "mi-boton-pedido");
 
-    imprimirPedidos(mercaderia.id,mercaderia.precio,imagen,botonPedido)
+    imprimirPedidos(mercaderia.id,mercaderia.precio,mercaderia.nombre,botonPedido)
 
     let mercaderiaDiv = document.createElement("div");
     mercaderiaDiv.appendChild(nombre);

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurante el Alba</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 
 </head>
 
@@ -18,65 +18,71 @@
                 <li class="menu-item"><a href="">Inicio</a></li>
                 <li class="menu-item"><a href="">Nosotros</a></li>
                 <li class="menu-item"><a href="">Carta</a></li>
-                <li id="menu-item-contacto" class="menu-item"><a href="">Contacto</a></li>
+                <li class="menu-item"><a href="">Contacto</a></li>
             </ul>
         </header>
 
         <main id="main" class="main">
             <section class="home-page-section">
                 <div class="home-page">
-                    <h1>Restaurante el Alba</h1>
-                    <p>¡Bienvenido a nuestro restaurante! Sumérgete en una experiencia culinaria única que combina
-                        sabores auténticos, ambiente acogedor y un servicio excepcional.</p>
-                    <a href="#carta" id="boton-pedido" class="boton-pedido">Hacer un pedido</a>
+                    <h1>Restaurante El Alba</h1>
+                    <p>Nuestro menú está cuidadosamente elaborado por nuestro talentoso equipo de chefs, que fusionan
+                        técnicas culinarias innovadoras con ingredientes frescos y de la más alta calidad. Desde platos
+                        tradicionales hasta creaciones vanguardistas, cada bocado está diseñado para deleitar tus
+                        sentidos y satisfacer tus deseos gastronómicos.</p>
+                    <a href="#menu-mercaderias" id="boton-menu" class="boton-menu">Ver menu</a>
                 </div>
             </section>
         </main>
     </div>
 
-    <section id="pedidos" class="pedidos">
-        <h2>Pedidos Realizados</h2>
-        <p id="precio">0</p>
-        <button id="crear-comanda">Realizar Pedido</button>
-        
-        <section class="forma-entrega">
-            <input type="radio" name="forma1" value="1">Salon<br>
-    
-            <input type="radio" name="forma1" value="2" checked>Delivery<br>
-    
-            <input type="radio" name="forma1" value="3">Pedidos Ya
-        </section>
+    <div class="fondo">
+        <h2 id="menu-mercaderias">Menu de Mercaderias</h2>
 
-
-    </section>
-
-    <section id="carta" class="carta">
-
-        <h2>Menu de Mercaderias</h2>
-
-        <div class="box">
+        <div class="search-box">
             <input type="search" id="search" placeholder="Busca tu comida" />
         </div>
 
-        <div class="nav-botones">
-            <button class="button button1">Todos</button>
-            <button class="button button2">Entradas</button>
-            <button class="button button3">Minutas</button>
-            <button class="button button4">Pastas</button>
-            <button class="button button5">Parrilla</button>
-            <button class="button button6">Pizzas</button>
-            <button class="button button7">Sandwich</button>
-            <button class="button button8">Ensaladas</button>
-            <button class="button button9">Bebidas</button>
-            <button class="button button10">Cerveza Artesanal</button>
-            <button class="button button11">Postres</button>
-        </div>
+        <section class="container" id="container">
+            <nav class="nav-menu">
+                <div class="nav-botones">
+                    <button class="button button1">Todos</button>
+                    <button class="button button2">Entradas</button>
+                    <button class="button button3">Minutas</button>
+                    <button class="button button4">Pastas</button>
+                    <button class="button button5">Parrilla</button>
+                    <button class="button button6">Pizzas</button>
+                    <button class="button button7">Sandwich</button>
+                    <button class="button button8">Ensaladas</button>
+                    <button class="button button9">Bebidas</button>
+                    <button class="button button10">Cerveza Artesanal</button>
+                    <button class="button button11">Postres</button>
+                </div>
+            </nav>
 
-        <div id="mercaderias" class="mercaderias"></div>
+            <div class="menu">
+                <div id="mercaderias" class="mercaderias"></div>
+                <div id="detalles-mercaderia" class="detalles-mercaderia"></div>
+            </div>
 
-        <div id="detalles-mercaderia" class="detalles-mercaderia"></div>
+            <div class="compra">
+                <div id="pedidos-forma-entrega" class="pedidos-forma-entrega">
+                    <h3>Pedidos Realizados</h3>
+                    <p id="precio">0</p>
+                    <button id="crear-comanda">Realizar Pedido</button>
+                    <div id="pedidos" class="pedidos">
+                    </div>
+                    <div class="forma-entrega">
+                        <input type="radio" name="forma1" value="1">Salon<br>
 
-    </section>
+                        <input type="radio" name="forma1" value="2" checked>Delivery<br>
+
+                        <input type="radio" name="forma1" value="3">Pedidos Ya
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="./src/views/main.js" type="module"></script>
 

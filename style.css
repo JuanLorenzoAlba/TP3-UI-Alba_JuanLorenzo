@@ -1,17 +1,21 @@
 :root {
-  --main-c: #5977b8;
+  --main-c: #2E2E2E;
+  --secondary-c: #414345;
+  --tertiary-c: #232526;
+  --orange-c: #FF5F19;
   --black-c: #000;
+  --white-c: #fff;
 }
 
 /** Estilos Generales **/
+
 html {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 a {
@@ -27,21 +31,33 @@ li {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
+}
+
+h2 {
+  padding: 1rem;
+  margin: 0;
+  color: var(--white-c);
 }
 
 p {
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 /* Enlaces & Botones*/
 
-.boton-pedido {
-  background-color: var(--main-c);
-  padding: 1rem 1rem;
-  color: #fff;
-  font-size: 1.5rem;
-  border-radius: 2px;
+.boton-menu {
+  background: var(--secondary-c);
+  padding: 1.5rem 1.5rem;
+  color: var(--white-c);
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid var(--main-c);
+}
+
+.boton-menu:hover {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
 }
 
 /* menu header */
@@ -53,15 +69,21 @@ ul.menu {
   padding: 0;
   justify-content: flex-end;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
-ul.menu #menu-item-contacto {
+.menu li {
   display: flex;
   align-items: center;
   padding: .5rem 1rem;
-  background-color: var(--main-c);
-  color: #fff;
+  background: var(--secondary-c);
+  border-radius: 5px;
+  border: 2px solid var(--main-c);
+}
+
+.menu li:hover {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
 }
 
 li.menu-item {
@@ -70,23 +92,13 @@ li.menu-item {
 
 li.menu-item a {
   padding: .5rem 1rem;
-  color: #fff;
-}
-
-li.menu-item a:hover {
-  color: var(--main-c);
+  color: var(--white-c);
 }
 
 /* Imagen de Fondo */
 
 .img-fondo {
-  background: #000428;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #004e92, #000428);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #004e92, #000428);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background-image: url(img/image.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -100,23 +112,118 @@ li.menu-item a:hover {
 }
 
 .home-page {
-  color: #fff;
+  color: var(--white-c);
   text-align: center;
   width: 50%;
+  height: 50%;
+  border: 2px solid var(--orange-c);
+  background-color: rgba(55, 54, 54, 0.8);
+  background-size: cover;
 }
 
 .home-page p {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
-.carta {
+.fondo {
+  background-color: var(--main-c);
+}
+
+/* Estructura */
+
+.container {
+  display: flex;
+}
+
+/* Buscador de mercaderias */
+
+.search-box {
   margin-left: 1rem;
-  display: none;
+}
+
+#search {
+  padding: 10px;
+  width: 73.5%;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background: var(--secondary-c);
+  color: var(--white-c);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+#search:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#search:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2), 0 0 0 1.5px var(--orange-c);
+  background: var(--tertiary-c);
+}
+
+#search::placeholder {
+  color: #999;
+}
+
+/* Filtros de mercaderias */
+
+.nav-botones {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 200px;
+}
+
+.nav-botones button {
+  padding: 10px 20px;
+  background: var(--secondary-c);
+  color: var(--white-c);
+  border: 2px solid var(--main-c);
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+}
+
+.button:focus {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+}
+
+/* Mercaderias */
+
+.mercaderias {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  margin-left: 2rem;
+}
+
+.mercaderias div {
+  margin: 0.5rem;
+  background: var(--secondary-c);
+  color: var(--white-c);
+  border-radius: 1rem;
+  border: 2px solid var(--main-c);
+}
+
+.mercaderias div:hover {
+  transform: scale(1.02);
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
 }
 
 .mercaderias img {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
+  padding: 0.5rem;
   border-radius: 1rem;
 }
 
@@ -124,41 +231,28 @@ li.menu-item a:hover {
   margin: 0.6rem;
 }
 
-#mercaderias {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.mercaderias > div {
-  margin: 1.5rem;
-  background-color: var(--black-c);
-  color: white;
-  border: 0.5rem solid var(--black-c);
-  border-radius: 1rem;
-  opacity: 0;
+#nombre-mercaderia {
+  font-size: 17px;
+  text-align: center;
 }
 
 .mercaderias button {
-  font-family: 'Outfit', sans-serif;
-  background-color: white;
-  color: black;
-  border: 2px solid var(--main-c);
+  background-color: var(--orange-c);
+  color: var(--white-c);
+  border: 2px solid var(--black-c);
   font-size: 15px;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   display: block;
   padding: 0.5rem 1rem;
   width: 200px;
   margin: 0 auto;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .mercaderias button:hover {
-  background-color: var(--main-c);
-  color: white;
+  background: linear-gradient(to top, #c62828,var(--orange-c));
 }
 
 .fade-in {
@@ -175,37 +269,7 @@ li.menu-item a:hover {
   }
 }
 
-.button {
-  font-family: 'Outfit', sans-serif;
-  background-color: white;
-  color: black;
-  border: 2px solid var(--main-c);
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border-radius: 0.5rem;
-}
-
-.button:hover {
-  background-color: var(--main-c);
-  color: white;
-}
-
-#search {
-  background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 0px 5px;
-  background-size: 24px;
-  width: 500px;
-  border: transparent;
-  border-bottom: solid 1px #ccc;
-  padding: 10px 10px 10px 30px;
-  outline: none;
-}
+/* Detalles de las mercaderias */
 
 .detalles-mercaderia {
   display: none;
@@ -218,47 +282,98 @@ li.menu-item a:hover {
   backdrop-filter: blur(10px);
 }
 
-.detalles-mercaderia > div{
-  background-color: white;
+.detalles-mercaderia div {
+  background: var(--tertiary-c);
   padding: 2rem;
   border-radius: 1rem;
   position: fixed;
+  color: var(--white-c);
+  border: 2px solid var(--orange-c);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.detalles-mercaderia > div p{
+#nombre-titulo{
+  font-size: 2rem;
+  margin: 0;
+}
+
+.detalles-mercaderia div p {
   font-size: 18px;
-  margin: 0.5rem;
 }
 
-.detalles-mercaderia > div img{
-  width: 300px;
-  height: 300px;
+.detalles-mercaderia div img {
+  width: 400px;
+  height: 400px;
   border-radius: 1rem;
+  margin-right: 2rem;
+  float: left;
 }
 
-.pedidos {
+#mi-boton-volver{
+  background-color: var(--orange-c);
+  color: var(--white-c);
+  border: 2px solid var(--black-c);
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  width: 200px;
+  margin: 0 auto;
+  float: right;
+}
+
+#mi-boton-volver:hover{
+  background: linear-gradient(to top, #c62828,var(--orange-c));
+}
+
+/* Pedidos */
+
+#precio{
   display: none;
-  margin-left: 1rem;
 }
 
-.pedidos > div {
-  padding: 16px;
-  text-align: center;
-  text-decoration: none;
+.compra {
+  margin-left: auto;
+/*   margin-right: 2.5rem; */
+  padding: 2rem;
+}
+
+.pedidos-forma-entrega {
+  position: sticky;
+  border: 2px solid var(--main-c);
+  border-radius: 1rem;
+  padding: 2rem;
+  top: 40px;
+  background: var(--secondary-c);
+  color: var(--white-c);
+  width: 240px; /* Establece un ancho fijo */
+}
+
+.pedidos-forma-entrega:hover {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+}
+
+.pedidos{
+  border: 2px solid var(--orange-c);
+  padding: 0.5rem;
+}
+
+
+#precio-pedido {
   display: inline-block;
+  margin: 0.5rem;
+  font-size: 13px;
 }
 
-.pedidos img{
-  position: relative;
+#nombre-pedido {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  font-size: 13px;
 }
 
-#mi-boton-eliminar {
+/* #mi-boton-eliminar {
   position: relative;
   right: 20px;
   bottom: 86px;
@@ -266,26 +381,40 @@ li.menu-item a:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: red;
-  color: white;
+  background-color: #4CAF50;
+  color: var(--white-c);
   border: none;
   font-size: 16px;
   line-height: 40px;
   text-align: center;
   cursor: pointer;
-}
+} */
 
-#mi-boton-eliminar:hover {
-  background-color: #4CAF50; /* Green */
-  color: white;
-}
+/* #mi-boton-eliminar:hover {
+  background-color: red;
+  color: var(--white-c);
+} */
 
-#crear-comanda{
+#crear-comanda {
+  background-color: var(--orange-c);
+  color: var(--white-c);
+  border: 2px solid var(--black-c);
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
   display: block;
   padding: 0.5rem 1rem;
   width: 200px;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.forma-entrega{
+#crear-comanda:hover {
+  background: linear-gradient(to top, #c62828,var(--orange-c));
+}
+
+.forma-entrega {
   display: block;
+  padding-top: 1rem;
 }
