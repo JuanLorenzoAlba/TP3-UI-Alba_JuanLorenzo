@@ -40,6 +40,10 @@ h2 {
   color: var(--white-c);
 }
 
+h3 {
+  text-align: center;
+}
+
 p {
   font-size: 1rem;
 }
@@ -252,7 +256,7 @@ li.menu-item a {
 }
 
 .mercaderias button:hover {
-  background: linear-gradient(to top, #c62828,var(--orange-c));
+  background: linear-gradient(to top, #c62828, var(--orange-c));
 }
 
 .fade-in {
@@ -292,9 +296,10 @@ li.menu-item a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 60rem;
 }
 
-#nombre-titulo{
+#nombre-titulo {
   font-size: 2rem;
   margin: 0;
 }
@@ -311,7 +316,7 @@ li.menu-item a {
   float: left;
 }
 
-#mi-boton-volver{
+#mi-boton-volver {
   background-color: var(--orange-c);
   color: var(--white-c);
   border: 2px solid var(--black-c);
@@ -320,24 +325,35 @@ li.menu-item a {
   border-radius: 5px;
   padding: 0.5rem 1rem;
   width: 200px;
-  margin: 0 auto;
-  float: right;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
-#mi-boton-volver:hover{
-  background: linear-gradient(to top, #c62828,var(--orange-c));
+#mi-boton-volver:hover {
+  background: linear-gradient(to top, #c62828, var(--orange-c));
 }
 
 /* Pedidos */
 
-#precio{
+.imagen-pedidos {
+  display: block;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.pedidos-informacion {
   display: none;
 }
 
 .compra {
   margin-left: auto;
-/*   margin-right: 2.5rem; */
   padding: 2rem;
+}
+
+.pedido-vacio{
+  text-align: center;
 }
 
 .pedidos-forma-entrega {
@@ -348,7 +364,7 @@ li.menu-item a {
   top: 40px;
   background: var(--secondary-c);
   color: var(--white-c);
-  width: 240px; /* Establece un ancho fijo */
+  width: 240px;
 }
 
 .pedidos-forma-entrega:hover {
@@ -356,16 +372,10 @@ li.menu-item a {
   background: var(--tertiary-c);
 }
 
-.pedidos{
-  border: 2px solid var(--orange-c);
-  padding: 0.5rem;
-}
-
-
 #precio-pedido {
   display: inline-block;
   margin: 0.5rem;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 #nombre-pedido {
@@ -373,27 +383,23 @@ li.menu-item a {
   font-size: 13px;
 }
 
-/* #mi-boton-eliminar {
-  position: relative;
-  right: 20px;
-  bottom: 86px;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #4CAF50;
+#mi-boton-eliminar {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background: var(--orange-c);
   color: var(--white-c);
-  border: none;
-  font-size: 16px;
-  line-height: 40px;
-  text-align: center;
+  border: 2px solid var(--black-c);
+  font-size: 12px;
+  margin: 4px 2px;
   cursor: pointer;
-} */
+  float: right
+}
 
-/* #mi-boton-eliminar:hover {
-  background-color: red;
-  color: var(--white-c);
-} */
+#mi-boton-eliminar:hover {
+  background: linear-gradient(to top, #c62828, var(--orange-c));
+}
 
 #crear-comanda {
   background-color: var(--orange-c);
@@ -411,10 +417,32 @@ li.menu-item a {
 }
 
 #crear-comanda:hover {
-  background: linear-gradient(to top, #c62828,var(--orange-c));
+  background: linear-gradient(to top, #c62828, var(--orange-c));
 }
 
-.forma-entrega {
+input[type="radio"] {
+  display: none;
+}
+
+label {
   display: block;
-  padding-top: 1rem;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: var(--secondary-c);
+  color: var(--white-c);
+  border: 2px solid var(--main-c);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked+label {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+}
+
+/* Comandas */
+
+.comandas{
+  color: var(--white-c);
+  background-color: var(--secondary-c);
 }

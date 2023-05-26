@@ -1,15 +1,18 @@
 function pedidoMercaderia() {
     const pedidosContainer = document.getElementById("mercaderias");
-    const precio = document.getElementById("precio");
+    const pedidoImagen = document.getElementById("pedido-vacio");
+    const pedidoFondo = document.getElementById("pedidos-forma-entrega");
 
     pedidosContainer.addEventListener("click", function (event) {
         if (event.target.matches("#mi-boton-pedido")) { // Reemplaza "mi-boton" con el ID del botón específico
             const boton = event.target;
-            const pedidos = document.getElementById("pedidos");
+            const pedidos = document.getElementById("pedidos-informacion");
+            pedidoImagen.style.display = "none";
             pedidos.style.display = "block";
-            precio.style.display = "block";
+            pedidoFondo.style.background = "var(--tertiary-c)"
         }
     });
 }
 
 export default pedidoMercaderia;
+

@@ -9,7 +9,7 @@ function imprimirPedidos(id,precio,nombre, botonPedido) {
   botonPedido.addEventListener("click", () => {
 
     let botonEliminarMercaderia = document.createElement("button");
-    botonEliminarMercaderia.innerText = "x";
+    botonEliminarMercaderia.innerText = "✘";
     botonEliminarMercaderia.setAttribute("id", "mi-boton-eliminar");
 
     let precioPedido = document.createElement("p");

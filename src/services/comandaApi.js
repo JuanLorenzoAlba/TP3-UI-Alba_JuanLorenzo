@@ -41,11 +41,11 @@ const crearComanda = async (mercaderias, formaEntrega) => {
     return result;
 };
 
-const ComandaApi = {
+const comandaApi = {
     GetComanda: getComanda,
     GetComandaById: getComandaById,
     GetComandaByFecha: getComandaByFecha,
     CrearComanda: crearComanda
 };
 
-export default ComandaApi;
+export default comandaApi;

@@ -1,6 +1,9 @@
 function quitarMercaderiaPedido() {
   const detallesContainer = document.getElementById("pedidos");
-  const precio = document.getElementById("precio");
+  const pedidoImagen = document.getElementById("pedido-vacio");
+  const pedidos = document.getElementById("pedidos-informacion");
+  const pedidoFondo = document.getElementById("pedidos-forma-entrega");
+
 
   detallesContainer.addEventListener("click", function (event) {
     if (event.target.matches("#mi-boton-eliminar")) {
@@ -10,7 +13,9 @@ function quitarMercaderiaPedido() {
 
       // Verificar si no hay elementos div dentro de la sección "pedidos"
       if (detallesContainer.childElementCount === 0) {
-        precio.style.display = "none";
+        pedidoImagen.style.display = "block";
+        pedidos.style.display = "none";
+        pedidoFondo.style.background = "var(--secondary-c)"
       }
     }
   });
