@@ -443,6 +443,35 @@ input[type="radio"]:checked+label {
 /* Comandas */
 
 .comandas{
+  display: flex;
+  flex-wrap: wrap;
   color: var(--white-c);
+/*   justify-content: center; */
+}
+
+#comandaDiv{
+  display: inline-block;
+  margin: 1rem;
   background-color: var(--secondary-c);
+  border: 2px solid var(--main-c);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 250px;
+}
+
+#comandaDiv:hover {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+}
+
+#mercaderia-comanda p{
+  display: inline-block;
+}
+
+#mercaderiaInfo-comanda{
+  display: flex;
+}
+
+#mercaderiaInfo-comanda p{
+  margin: 0.5rem;
 }

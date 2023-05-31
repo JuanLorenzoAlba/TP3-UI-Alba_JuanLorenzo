@@ -4,7 +4,6 @@ function quitarMercaderiaPedido() {
   const pedidos = document.getElementById("pedidos-informacion");
   const pedidoFondo = document.getElementById("pedidos-forma-entrega");
 
-
   detallesContainer.addEventListener("click", function (event) {
     if (event.target.matches("#mi-boton-eliminar")) {
       const boton = event.target;
