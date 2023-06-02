@@ -28,18 +28,34 @@ function hacerUnaComanda() {
         comandaApi.CrearComanda(mercaderiasId, valorSeleccionado)
             .then(function (comanda) {
                 imprimirComanda(comanda);
+                swal({
+                    title: "Comanda Creada",
+                    text: "Gracias por Comprar",
+                    icon: "success",
+                    button: "Continuar",
+                });
+
+                var comandasContainer = document.getElementById("comandas");
+
+                // Obtén el último div agregado dentro del contenedor
+                var ultimoDivAgregado = comandasContainer.lastElementChild;
+        
+                // Desplázate al último div agregado con un desplazamiento suave
+                ultimoDivAgregado.scrollIntoView({
+                    behavior: "smooth"
+                });
             })
+            .catch(function (error) {
+                swal({
+                    title: "Hubo un error",
+                    text: "Falta elegir la forma de entrega",
+                    icon: "error",
+                    button: "Continuar",
+                });
+            });
 
         // Obtén el contenedor de comandas
-        var comandasContainer = document.getElementById("comandas");
 
-        // Obtén el último div agregado dentro del contenedor
-        var ultimoDivAgregado = comandasContainer.lastElementChild;
-
-        // Desplázate al último div agregado con un desplazamiento suave
-        ultimoDivAgregado.scrollIntoView({
-            behavior: "smooth"
-        });
 
         pedidoImagen.style.display = "block";
         pedidosInformacion.style.display = "none";

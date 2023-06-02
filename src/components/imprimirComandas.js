@@ -21,7 +21,7 @@ function imprimirComandas(comandas) {
             mercaderiasInfo.setAttribute("id", "mercaderiaInfo-comanda");
 
             let nombre = document.createElement("p");
-            nombre.innerText = "✓ " + limitarCaracteres(mercaderia.nombre,25);
+            nombre.innerText = "✓ " + limitarCaracteresNombres(mercaderia.nombre,15);
 
             let precio = document.createElement("p");
             precio.innerText = "$ " +  mercaderia.precio;
@@ -72,6 +72,14 @@ function limitarCaracteres(texto, limite) {
       return texto;
     } else {
       return texto.slice(0, limite);
+    }
+  }
+
+  function limitarCaracteresNombres(texto, limite) {
+    if (texto.length <= limite) {
+      return texto;
+    } else {
+      return texto.slice(0, limite) + "...";
     }
   }
 
