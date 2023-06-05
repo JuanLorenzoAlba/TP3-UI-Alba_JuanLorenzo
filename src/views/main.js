@@ -13,16 +13,6 @@ import imprimirComandas from "../components/imprimirComandas.js";
 let mercaderias = await mercaderiaApi.GetMercaderia();
 imprimirMercaderias(mercaderias);
 
-var fechaActual = new Date();
-var dia = fechaActual.getDate();
-var mes = fechaActual.getMonth() + 1; // Los meses en JavaScript comienzan desde 0
-var anio = fechaActual.getFullYear();
-
-var fecha = dia + '/' + mes + '/' + anio;
-
-let comandas = await comandaApi.GetComandaByFecha(fecha);
-imprimirComandas(comandas);
-
 // Logica del Buscador de mercaderias
 buscadorMercaderia();
 
@@ -36,11 +26,7 @@ detallesMercaderia();
 pedidoMercaderia();
 
 //Logica para quitar una mercaderia de un pedido
-quitarMercaderiaPedido();
+/* quitarMercaderiaPedido(); */
 
 //Logica para hacer una comanda
 hacerUnaComanda();
-
-
-
-

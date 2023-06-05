@@ -16,6 +16,7 @@
 
 html {
   font-family: 'Ubuntu', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -118,11 +119,58 @@ li.menu-item a {
 
 /* Imagen de Fondo */
 
+.slider-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.header,
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+.slider-frame ul {
+	display: flex;
+	padding: 0;
+  margin: 0;
+	width: 400%;
+	
+	animation: slide 15s infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+	width: 100%;
+	list-style: none;
+}
+
+.slider-frame img {
+  width: 100%;
+  height: 90%;
+}
+
+@keyframes slide {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+
 .img-fondo {
-  background-image: url(img/fondo.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
+  z-index: 0;
 }
 
 .home-page-section {
@@ -196,6 +244,8 @@ li.menu-item a {
   flex-direction: column;
   padding: 20px;
   width: 200px;
+  position: sticky;
+  top: 1rem;
 }
 
 .nav-botones button {
@@ -221,7 +271,10 @@ li.menu-item a {
 .button:focus {
   border: 2px solid var(--orange-c);
   background: var(--tertiary-c);
+}
 
+.orden-botones button{
+  width: 94px;
 }
 
 /* Mercaderias */
@@ -264,7 +317,7 @@ li.menu-item a {
 
 #nombre-mercaderia {
   font-size: 17px;
-  text-align: center;
+/*   text-align: center; */
 }
 
 .mercaderias button {
@@ -403,10 +456,16 @@ li.menu-item a {
   filter: none;
 }
 
-#precio-pedido {
+#cantidad-pedido{
   display: inline-block;
   margin: 0.5rem;
+  font-size: 13px;
+}
+
+#precio-pedido {
+  margin: 0.5rem;
   font-size: 15px;
+  float: right;
 }
 
 #nombre-pedido {
@@ -425,7 +484,7 @@ li.menu-item a {
   font-size: 12px;
   margin: 4px 2px;
   cursor: pointer;
-  float: right
+  float: left;
 }
 
 #mi-boton-eliminar:hover {
@@ -473,6 +532,11 @@ input[type="radio"]:checked+label {
 }
 
 /* Comandas */
+
+.comandas-container{
+  display: none;
+  background-color: var(--main-c);
+}
 
 .comandas {
   display: flex;

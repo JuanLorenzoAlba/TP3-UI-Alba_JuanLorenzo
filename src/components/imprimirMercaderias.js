@@ -39,10 +39,10 @@ function imprimirMercaderias(mercaderias) {
     imprimirPedidos(mercaderia.id, mercaderia.precio, mercaderia.nombre, botonPedido)
 
     let mercaderiaDiv = document.createElement("div");
+    mercaderiaDiv.appendChild(imagen);
     mercaderiaDiv.appendChild(nombre);
     mercaderiaDiv.appendChild(tipo);
     mercaderiaDiv.appendChild(precio);
-    mercaderiaDiv.appendChild(imagen);
     mercaderiaDiv.appendChild(botonDetalles);
     mercaderiaDiv.appendChild(botonPedido);
 

@@ -34,11 +34,21 @@ const getMercaderiaByNombre = async (nombreMercaderia) => {
     return result;
 };
 
+const getMercaderiaByOrden = async (orden) => {
+    let result = [];
+    let response = await fetch(`https://localhost:7194/api/v1/Mercaderia?orden=${orden}`);
+    if (response.ok) {
+        result = await response.json();
+    }
+    return result;
+};
+
 const mercaderiaApi = {
     GetMercaderia: getMercaderia,
     GetMercaderiaById: getMercaderiaById,
     GetMercaderiaByTipo: getMercaderiaByTipo,
-    GetMercaderiaByNombre: getMercaderiaByNombre
+    GetMercaderiaByNombre: getMercaderiaByNombre,
+    GetMercaderiaByOrden: getMercaderiaByOrden
 };
 
 export default mercaderiaApi;

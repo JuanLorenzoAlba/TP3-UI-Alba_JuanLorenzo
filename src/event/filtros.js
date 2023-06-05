@@ -6,10 +6,14 @@ function filtros() {
     botones.forEach((boton, index) => {
         boton.addEventListener("click", async function () {
             let mercaderias;
-            if (index === 0) {
-                mercaderias = await mercaderiaApi.GetMercaderia();
-            } else {
-                mercaderias = await mercaderiaApi.GetMercaderiaByTipo(index);
+            if(index === 0){
+                mercaderias = await mercaderiaApi.GetMercaderiaByOrden("asc");
+            }
+            if(index === 1){
+                mercaderias = await mercaderiaApi.GetMercaderiaByOrden("desc");
+            }
+            if(index > 1) {
+                mercaderias = await mercaderiaApi.GetMercaderiaByTipo(index-1);
             }
             imprimirMercaderias(mercaderias);
         });

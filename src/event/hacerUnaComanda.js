@@ -10,10 +10,24 @@ function hacerUnaComanda() {
 
     botonComanda.addEventListener("click", function () {
 
-        const pedidos = document.getElementById("pedidos");
         const divs = pedidos.getElementsByTagName("div");
-        const mercaderiasId = Array.from(divs).map(div => div.id);
-        const divsArray = Array.from(divs);
+
+        const listasTotales = Array.from(divs).map(div => {
+          const id = div.id;
+          const parrafo = div.querySelector("p");
+          const valorParrafo = parrafo ? parrafo.textContent : "";
+          const regex = /(\d+)/; // Expresión regular para buscar un número
+          const match = valorParrafo.match(regex);
+          const numeroParrafo = match ? parseInt(match[0]) : 0;
+        
+          const lista = Array.from({ length: numeroParrafo }, () => id);
+        
+          return lista;
+        }).reduce((accumulator, lista) => accumulator.concat(lista), []);
+        
+
+/*         const divsArray = Array.from(divs); */
+
 
         var opciones = document.getElementsByName("forma");
 
@@ -25,34 +39,45 @@ function hacerUnaComanda() {
             }
         }
 
-        comandaApi.CrearComanda(mercaderiasId, valorSeleccionado)
+        if(valorSeleccionado === undefined){
+            swal({
+                title: "Hubo un error",
+                text: "Falta elegir la forma de entrega",
+                icon: "error",
+                button: "Continuar",
+            });
+        }
+        else{
+            comandaApi.CrearComanda(listasTotales, valorSeleccionado)
+            swal({
+                title: "Comanda Creada",
+                text: "Gracias por Comprar",
+                icon: "success",
+                button: "Continuar",
+            });
+        }
+
+/* 
             .then(function (comanda) {
-                imprimirComanda(comanda);
-                swal({
-                    title: "Comanda Creada",
-                    text: "Gracias por Comprar",
-                    icon: "success",
-                    button: "Continuar",
-                });
+                imprimirComanda(comanda); */
+
+
+/*                 const comandaContainer = document.getElementById("comandas-container");
+                comandaContainer.style.display = "block";
 
                 var comandasContainer = document.getElementById("comandas");
 
                 // Obtén el último div agregado dentro del contenedor
                 var ultimoDivAgregado = comandasContainer.lastElementChild;
-        
+
                 // Desplázate al último div agregado con un desplazamiento suave
                 ultimoDivAgregado.scrollIntoView({
                     behavior: "smooth"
-                });
-            })
+                }); */
+/*             })
             .catch(function (error) {
-                swal({
-                    title: "Hubo un error",
-                    text: "Falta elegir la forma de entrega",
-                    icon: "error",
-                    button: "Continuar",
-                });
-            });
+
+            }); */
 
         // Obtén el contenedor de comandas
 
@@ -61,9 +86,9 @@ function hacerUnaComanda() {
         pedidosInformacion.style.display = "none";
         pedidoFondo.style.background = "var(--secondary-c)"
 
-        divsArray.forEach(function (div) {
+/*         divsArray.forEach(function (div) {
             div.remove();
-        });
+        }); */
     });
 }
 

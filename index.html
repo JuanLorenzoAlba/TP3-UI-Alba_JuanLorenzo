@@ -5,26 +5,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restaurante el Alba</title>
+  <title>Restaurante Alba</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
 <body>
   <div class="img-fondo">
+    <div class="slider-frame">
+      <ul>
+        <li><img src="img/fondo1.png" alt=""></li>
+        <li><img src="img/fondo2.png" alt=""></li>
+        <li><img src="img/fondo3.png" alt=""></li>
+        <li><img src="img/fondo4.png" alt=""></li>
+      </ul>
+    </div>
+  
     <header class="header">
       <ul class="menu" id="menu-list">
-        <li class="menu-item"><a href="/">Inicio</a></li>
+        <li class="menu-item"><a href="#">Inicio</a></li>
         <li class="menu-item"><a href="#menu-mercaderias">Carta</a></li>
-        <li class="menu-item"><a href="#comanda-dia">Comandas del Dia</a></li>
+        <li class="menu-item"><a href="/comanda.html#comanda-dia">Comandas del Dia</a></li>
         <li class="menu-item"><a href="#footer">Contacto</a></li>
       </ul>
     </header>
-
+  
     <main id="main" class="main">
       <section class="home-page-section">
         <div class="home-page">
@@ -49,17 +58,21 @@
     <section class="container" id="container">
       <nav class="nav-menu">
         <div class="nav-botones">
-          <button class="button button1">Todos</button>
-          <button class="button button2">Entradas</button>
-          <button class="button button3">Minutas</button>
-          <button class="button button4">Pastas</button>
-          <button class="button button5">Parrilla</button>
-          <button class="button button6">Pizzas</button>
-          <button class="button button7">Sandwich</button>
-          <button class="button button8">Ensaladas</button>
-          <button class="button button9">Bebidas</button>
-          <button class="button button10">Cerveza Artesanal</button>
-          <button class="button button11">Postres</button>
+          <div class="orden-botones">
+            <button class="button button1">▼ Precio</button>
+            <button class="button button2">▲ Precio</button>
+          </div>
+          <!--           <button class="button button3">Todos</button> -->
+          <button class="button button4">Entradas</button>
+          <button class="button button5">Minutas</button>
+          <button class="button button6">Pastas</button>
+          <button class="button button7">Parrilla</button>
+          <button class="button button8">Pizzas</button>
+          <button class="button button9">Sandwich</button>
+          <button class="button button10">Ensaladas</button>
+          <button class="button button11">Bebidas</button>
+          <button class="button button12">Cerveza Artesanal</button>
+          <button class="button button13">Postres</button>
         </div>
       </nav>
 
@@ -97,11 +110,12 @@
       </div>
     </section>
 
-    <h2 id="comanda-dia">Comandas del dia</h2>
+<!--     <div class="comandas-container" id="comandas-container">
+      <h2 id="comanda-dia">Comandas del dia</h2>
 
-    <div id="comandas" class="comandas">
+      <div id="comandas" class="comandas"></div>
 
-    </div>
+    </div> -->
   </div>
 
   <footer class="footer" id="footer">
@@ -118,9 +132,9 @@
       <div class="direccion">
         <h3>Dirección</h3>
         <ul>
-          <li>Calle, 82</li>
+          <li>Calle 145</li>
           <li>Población - 0000</li>
-          <li>Movil: (+34) 600 00 00 00</li>
+          <li>Movil: (+54) 011 4275-6100</li>
           <li>Fax: (+34) 900 00 00 00</li>
         </ul>
       </div>
@@ -128,9 +142,9 @@
       <div class="mas-informacion">
         <h3>Más información</h3>
         <ul>
-          <li><a href="/">Inicio</a></li>
+          <li><a href="#">Inicio</a></li>
           <li><a href="#menu-mercaderias">Carta</a></li>
-          <li><a href="#comanda-dia">Comanda del Dia</a></li>
+          <li><a href="/comanda.html#comanda-dia">Comanda del Dia</a></li>
           <li><a href="#footer">Contacto</a></li>
         </ul>
       </div>
@@ -154,7 +168,7 @@
       <div class="legal-creds">
         <ul>
           <li><a href="">Política de Privacidad</a></li>
-          <li><a href="">Plítica de Cookies</a></li>
+          <li><a href="">Política de Cookies</a></li>
           <li><a href="">Aviso Legal</a></li>
         </ul>
       </div>
