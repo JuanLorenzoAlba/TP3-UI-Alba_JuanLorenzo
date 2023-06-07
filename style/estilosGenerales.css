@@ -1,0 +1,44 @@
+html {
+    font-family: 'Ubuntu', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--white-c);
+}
+
+button {
+    color: var(--white-c);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    padding: 1rem;
+    margin: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+}

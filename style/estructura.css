@@ -1,0 +1,7 @@
+.fondo {
+  background-color: var(--main-c);
+}
+
+.container {
+  display: flex;
+}

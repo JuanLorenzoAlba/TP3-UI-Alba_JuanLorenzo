@@ -1,0 +1,40 @@
+.comandas-container {
+  background-color: var(--main-c);
+}
+
+.comandas {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 3rem;
+}
+
+#comandaDiv {
+  display: inline-block;
+  margin: 1rem;
+  background-color: var(--secondary-c);
+  border: 2px solid var(--main-c);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 250px;
+  transition: .2s;
+}
+
+#comandaDiv:hover {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+#mercaderia-comanda p {
+  display: inline-block;
+}
+
+#mercaderiaInfo-comanda {
+  display: inline-block;
+}
+
+#mercaderiaInfo-comanda p {
+  margin: 0.2rem;
+  font-size: 14px;
+}

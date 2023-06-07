@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandas</title>
+    <link rel="stylesheet" href="/style/colores.css">
+    <link rel="stylesheet" href="/style/estilosGenerales.css">
+    <link rel="stylesheet" href="/style/menuHeader.css">
+    <link rel="stylesheet" href="/style/slider.css">
+    <link rel="stylesheet" href="/style/footer.css">
+    <link rel="stylesheet" href="/style/comandas.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/logo.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+    <div class="img-fondo">
+        <div class="slider-frame">
+            <ul>
+                <li><img src="/img/slider-comanda/fondo-1.png" alt=""></li>
+                <li><img src="/img/slider-comanda/fondo-2.png" alt=""></li>
+                <li><img src="/img/slider-comanda/fondo-3.png" alt=""></li>
+                <li><img src="/img/slider-comanda/fondo-4.png" alt=""></li>
+            </ul>
+        </div>
+
+        <header class="header">
+            <ul class="menu" id="menu-list">
+                <li class="menu-item"><a href="#">Inicio</a></li>
+                <li class="menu-item"><a href="./#menu-mercaderias">Carta</a></li>
+                <li class="menu-item"><a href="#comanda-dia">Comandas del Dia</a></li>
+                <li class="menu-item"><a href="#footer">Contacto</a></li>
+            </ul>
+        </header>
+
+        <main id="main" class="main">
+            <section class="home-page-section">
+                <div class="home-page">
+                    <h1>Restaurante Alba</h1>
+                    <p>Nuestro menú está cuidadosamente elaborado por nuestro talentoso equipo de chefs, que fusionan
+                        técnicas culinarias innovadoras con ingredientes frescos y de la más alta calidad. Desde platos
+                        tradicionales hasta creaciones vanguardistas, cada bocado está diseñado para deleitar tus
+                        sentidos y satisfacer tus deseos gastronómicos.</p>
+                    <a href="#comanda-dia" id="boton-menu" class="boton-menu">Ver comandas</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="comandas-container" id="comandas-container">
+        <h2 id="comanda-dia"></h2>
+        <div id="comandas" class="comandas"></div>
+    </div>
+
+    <footer class="footer" id="footer">
+        <div class="wrap-footer">
+
+            <div class="restautante">
+                <h3>Restaurante</h3>
+                <p>Nuestro menú está cuidadosamente elaborado por nuestro talentoso equipo de chefs, que fusionan
+                    técnicas culinarias innovadoras con ingredientes frescos y de la más alta calidad. Desde platos
+                    tradicionales hasta creaciones vanguardistas, cada bocado está diseñado para deleitar tus
+                    sentidos y satisfacer tus deseos gastronómicos</p>
+            </div>
+
+            <div class="direccion">
+                <h3>Dirección</h3>
+                <ul>
+                    <li>Calle 145</li>
+                    <li>Población - 0000</li>
+                    <li>Movil: (+54) 011 4275-6100</li>
+                    <li>Fax: (+54) 900 00 00 00</li>
+                </ul>
+            </div>
+
+            <div class="mas-informacion">
+                <h3>Más información</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="./#menu-mercaderias">Carta</a></li>
+                    <li><a href="#comanda-dia">Comanda del Dia</a></li>
+                    <li><a href="#footer">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="rrss-element-footer">
+                <h3>Redes Sociales</h3>
+                <div class="redes-container">
+                    <ul>
+                        <li><a href="https://www.facebook.com/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li><a href="https://www.instagram.com/" class="instagram"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li><a href="https://ar.pinterest.com/" class="pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-creds">
+            <div class="copy-creds">
+                <p>©2023 · Todos los derechos reservados.</p>
+            </div>
+            <div class="legal-creds">
+                <ul>
+                    <li><a href="">Política de Privacidad</a></li>
+                    <li><a href="">Política de Cookies</a></li>
+                    <li><a href="">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/views/comanda.js" type="module"></script>
+
+</body>
+
+</html>

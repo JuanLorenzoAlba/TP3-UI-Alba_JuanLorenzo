@@ -2,13 +2,13 @@ let monto = 0;
 
 function imprimirPedidos(id, precio, nombre, botonPedido) {
 
-  let mercaderiaPedidosContainer = document.getElementById("pedidos");
+  let pedidosContainer = document.getElementById("pedidos");
   let precioTotal = document.getElementById("precio");
   let botonComanda = document.getElementById("crear-comanda");
 
-  const pedidoImagen = document.getElementById("pedido-vacio");
-  const pedidos = document.getElementById("pedidos-informacion");
-  const pedidoFondo = document.getElementById("pedidos-forma-entrega");
+  let pedidoImagen = document.getElementById("pedido-vacio");
+  let pedidosInformacion = document.getElementById("pedidos-informacion");
+  let pedidoFondo = document.getElementById("pedidos-forma-entrega");
 
   let pedidoExistente = false;
   let cantidadPedido;
@@ -21,8 +21,10 @@ function imprimirPedidos(id, precio, nombre, botonPedido) {
       cantidadPedido.innerText = "x " + cantidad;
 
       monto += precio;
-      precioTotal.textContent = "Precio Total: " + monto;
-    } else {
+      precioTotal.textContent = "Precio Total: $ " + monto;
+    }
+
+    else {
       pedidoExistente = true;
 
       let botonEliminarMercaderia = document.createElement("button");
@@ -42,7 +44,7 @@ function imprimirPedidos(id, precio, nombre, botonPedido) {
       nombrePedido.innerText = limitarCaracteres(nombre, 15);
 
       monto += precio;
-      precioTotal.textContent = "Precio Total: " + monto;
+      precioTotal.textContent = "Precio Total: $ " + monto;
 
       botonEliminarMercaderia.addEventListener("click", () => {
         let cantidad = parseInt(cantidadPedido.innerText.replace("x ", ""));
@@ -51,40 +53,39 @@ function imprimirPedidos(id, precio, nombre, botonPedido) {
           cantidadPedido.innerText = "x " + cantidad;
 
           monto -= precio;
-          precioTotal.textContent = "Precio Total: " + monto;
+          precioTotal.textContent = "Precio Total: $ " + monto;
         }
 
         if (cantidad === 0) {
-          mercaderiaPedidosContainer.removeChild(mercaderiaPedidosDiv);
+          pedidosContainer.removeChild(pedidosDiv);
           pedidoExistente = false;
         }
 
-        if(mercaderiaPedidosContainer.childElementCount === 0){
+        if (pedidosContainer.childElementCount === 0) {
           pedidoImagen.style.display = "block";
-          pedidos.style.display = "none";
+          pedidosInformacion.style.display = "none";
           pedidoFondo.style.background = "var(--secondary-c)"
         }
       });
 
       botonComanda.addEventListener("click", () => {
         monto = 0;
-        precioTotal.textContent = "Precio Total: " + 0;
-        while (mercaderiaPedidosContainer.firstChild) {
-          mercaderiaPedidosContainer.removeChild(mercaderiaPedidosContainer.firstChild);
+        precioTotal.textContent = "Precio Total: $ " + 0;
+        while (pedidosContainer.firstChild) {
+          pedidosContainer.removeChild(pedidosContainer.firstChild);
         }
-/*         mercaderiaPedidosContainer.removeChild(mercaderiaPedidosDiv); */
         pedidoExistente = false;
       });
 
-      let mercaderiaPedidosDiv = document.createElement("div");
-      mercaderiaPedidosDiv.setAttribute("id", id);
+      let pedidosDiv = document.createElement("div");
+      pedidosDiv.setAttribute("id", id);
 
-      mercaderiaPedidosDiv.appendChild(cantidadPedido);
-      mercaderiaPedidosDiv.appendChild(nombrePedido);
-      mercaderiaPedidosDiv.appendChild(precioPedido);
-      mercaderiaPedidosDiv.appendChild(botonEliminarMercaderia);
+      pedidosDiv.appendChild(cantidadPedido);
+      pedidosDiv.appendChild(nombrePedido);
+      pedidosDiv.appendChild(precioPedido);
+      pedidosDiv.appendChild(botonEliminarMercaderia);
 
-      mercaderiaPedidosContainer.appendChild(mercaderiaPedidosDiv);
+      pedidosContainer.appendChild(pedidosDiv);
     }
   });
 }

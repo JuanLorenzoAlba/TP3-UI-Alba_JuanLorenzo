@@ -6,7 +6,7 @@ function imprimirMercaderias(mercaderias) {
   let mercaderiasContainer = document.getElementById("mercaderias");
 
   if (mercaderias.length === 0) {
-    return; // No hay mercaderías, no se imprime nada
+    return;
   } else {
     mercaderiasContainer.innerHTML = "";
   }
@@ -22,6 +22,7 @@ function imprimirMercaderias(mercaderias) {
 
     let precio = document.createElement("p");
     precio.innerText = "Precio: $ " + mercaderia.precio;
+    precio.setAttribute("id", "precio-mercaderia");
 
     let imagen = document.createElement("img");
     imagen.setAttribute("src", mercaderia.imagen);
@@ -39,6 +40,7 @@ function imprimirMercaderias(mercaderias) {
     imprimirPedidos(mercaderia.id, mercaderia.precio, mercaderia.nombre, botonPedido)
 
     let mercaderiaDiv = document.createElement("div");
+
     mercaderiaDiv.appendChild(imagen);
     mercaderiaDiv.appendChild(nombre);
     mercaderiaDiv.appendChild(tipo);

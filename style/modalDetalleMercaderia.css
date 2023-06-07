@@ -1,0 +1,57 @@
+.detalles-mercaderia {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.detalles-mercaderia div {
+  background: var(--tertiary-c);
+  padding: 2rem;
+  border-radius: 1rem;
+  position: fixed;
+  border: 2px solid var(--orange-c);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60rem;
+}
+
+#nombre-titulo {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.detalles-mercaderia div p {
+  font-size: 18px;
+}
+
+.detalles-mercaderia div img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  float: left;
+}
+
+#mi-boton-volver {
+  background-color: var(--orange-c);
+  border: 2px solid var(--black-c);
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  width: 200px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+#mi-boton-volver:hover {
+  background: linear-gradient(to top, #c62828, var(--orange-c));
+}

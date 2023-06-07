@@ -1,0 +1,35 @@
+.nav-botones {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 200px;
+  position: sticky;
+  top: 1rem;
+}
+
+.nav-botones button {
+  padding: 10px 20px;
+  background: var(--secondary-c);
+  border: 2px solid var(--main-c);
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: .2s;
+}
+
+.nav-botones button:hover {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.nav-botones button:focus {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+}
+
+.orden-botones button {
+  width: 94px;
+}

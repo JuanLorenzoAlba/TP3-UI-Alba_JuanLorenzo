@@ -1,16 +1,21 @@
 import imprimirComandas from "../components/imprimirComandas.js";
 import comandaApi from "../services/comandaApi.js";
 
-var fechaActual = new Date();
-var dia = fechaActual.getDate();
-var mes = fechaActual.getMonth() + 1; // Los meses en JavaScript comienzan desde 0
-var anio = fechaActual.getFullYear();
+let fechaActual = new Date();
+let dia = fechaActual.getDate();
+let mes = fechaActual.getMonth() + 1;
+let anio = fechaActual.getFullYear();
 
-var fecha = dia + '/' + mes + '/' + anio;
+let fecha = dia + '/' + mes + '/' + anio;
 
 let comandas = await comandaApi.GetComandaByFecha(fecha);
-const comandaContainer = document.getElementById("comandas-container");
-if(comandas.length != 0){
-    comandaContainer.style.display = "block";
+let comandaDia = document.getElementById("comanda-dia");
+
+if (comandas.length === 0) {
+    comandaDia.innerText = "Hoy no se han realizado comandas"
 }
-imprimirComandas(comandas);
+
+if(comandas.length > 0){
+    comandaDia.innerText = "Comandas del dia"
+    imprimirComandas(comandas);
+}

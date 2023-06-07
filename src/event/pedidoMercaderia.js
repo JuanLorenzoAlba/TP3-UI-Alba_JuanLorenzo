@@ -1,15 +1,16 @@
 function pedidoMercaderia() {
-    const pedidosContainer = document.getElementById("mercaderias");
-    const pedidoImagen = document.getElementById("pedido-vacio");
-    const pedidoFondo = document.getElementById("pedidos-forma-entrega");
+    let mercaderias = document.getElementById("mercaderias");
 
-    pedidosContainer.addEventListener("click", function (event) {
-        if (event.target.matches("#mi-boton-pedido")) { // Reemplaza "mi-boton" con el ID del botón específico
-            const boton = event.target;
-            const pedidos = document.getElementById("pedidos-informacion");
+    let pedidoImagen = document.getElementById("pedido-vacio");
+    let pedidoFondo = document.getElementById("pedidos-forma-entrega");
+    let pedidosInformacion = document.getElementById("pedidos-informacion");
+
+    mercaderias.addEventListener("click", function (event) {
+        if (event.target.matches("#mi-boton-pedido")) {
+
             pedidoImagen.style.display = "none";
-            pedidos.style.display = "block";
             pedidoFondo.style.background = "var(--tertiary-c)"
+            pedidosInformacion.style.display = "block";
         }
     });
 }

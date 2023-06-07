@@ -1,86 +1,101 @@
 function imprimirComandas(comandas) {
 
-    let contador = 1; // Inicializamos el contador
+  let contador = 1;
 
-    let comandasContainer = document.getElementById("comandas");
+  let comandasContainer = document.getElementById("comandas");
 
-    if (comandas.length === 0) {
-        return; // No hay mercaderías, no se imprime nada
-    } else {
-        comandasContainer.innerHTML = "";
-    }
+  if (comandas.length === 0) {
+    return;
+  } else {
+    comandasContainer.innerHTML = "";
+  }
 
-    comandas.forEach(comanda => {
+  comandas.forEach(comanda => {
 
-        let mercaderias = document.createElement("div");
-        mercaderias.setAttribute("id", "mercaderia-comanda");
+    let mercaderias = document.createElement("div");
+    mercaderias.setAttribute("id", "mercaderia-comanda");
 
-        comanda.mercaderias.forEach(mercaderia => {
+    let mercaderiasConteo = {};
 
-            let mercaderiasInfo = document.createElement("div");
-            mercaderiasInfo.setAttribute("id", "mercaderiaInfo-comanda");
+    comanda.mercaderias.forEach(mercaderia => {
+      if (mercaderiasConteo[mercaderia.nombre]) {
+        mercaderiasConteo[mercaderia.nombre]++;
+      } else {
+        mercaderiasConteo[mercaderia.nombre] = 1;
+      }
+    });
 
-            let nombre = document.createElement("p");
-            nombre.innerText = "✓ " + limitarCaracteresNombres(mercaderia.nombre,15);
+    Object.keys(mercaderiasConteo).forEach(nombreMercaderia => {
+      let mercaderiasInfo = document.createElement("div");
+      mercaderiasInfo.setAttribute("id", "mercaderiaInfo-comanda");
 
-            let precio = document.createElement("p");
-            precio.innerText = "$ " +  mercaderia.precio;
+      let nombre = document.createElement("p");
+      nombre.innerText = limitarCaracteresNombres(nombreMercaderia, 20);
 
-            mercaderiasInfo.appendChild(nombre);
-            mercaderiasInfo.appendChild(precio);
-            mercaderias.appendChild(mercaderiasInfo);
-        })
+      let precio = document.createElement("p");
+      precio.innerText = "$ " + comanda.mercaderias.find(mercaderia => mercaderia.nombre === nombreMercaderia).precio;
+      precio.setAttribute("id", "mercaderiaComanda-precio");
 
-        let titulo = document.createElement("h2");
-        titulo.innerText = "Comanda " + contador;
+      let repeticiones = document.createElement("p");
+      repeticiones.innerText = mercaderiasConteo[nombreMercaderia] + " x";
 
-        contador ++;
+      mercaderiasInfo.appendChild(repeticiones);
+      mercaderiasInfo.appendChild(nombre);
+      mercaderiasInfo.appendChild(precio);
 
-        let nombreMercaderia = document.createElement("p");
-        nombreMercaderia.innerText = "Mercaderias Pedidas";
+      mercaderias.appendChild(mercaderiasInfo);
+    });
 
-        let infoComanda = document.createElement("div");
-        infoComanda.setAttribute("id", "infoComanda");
+    let titulo = document.createElement("h2");
+    titulo.innerText = "Comanda " + contador;
 
-        let descripcion = document.createElement("p");
-        descripcion.innerText = "Forma de Entrega: " + comanda.formaEntrega.descripcion;
+    contador++;
 
-        let total = document.createElement("p");
-        total.innerText = "Precio Total: " + comanda.total;
+    let nombreMercaderia = document.createElement("p");
+    nombreMercaderia.innerText = "Mercaderias Pedidas: ";
 
-        let fecha = document.createElement("p");
-        fecha.innerText = "Fecha: " + limitarCaracteres(comanda.fecha,10);
+    let fecha = document.createElement("p");
+    fecha.innerText = "Fecha: " + limitarCaracteres(comanda.fecha, 10);
 
-        let comandaDiv = document.createElement("div");
-        comandaDiv.setAttribute("id", "comandaDiv");
+    let descripcion = document.createElement("p");
+    descripcion.innerText = "Forma de Entrega: " + comanda.formaEntrega.descripcion;
 
-        infoComanda.appendChild(fecha);
-        infoComanda.appendChild(descripcion);
-        infoComanda.appendChild(total);
+    let total = document.createElement("p");
+    total.innerText = "Precio Total: $ " + comanda.total;
 
-        comandaDiv.appendChild(titulo);
-        comandaDiv.appendChild(infoComanda);
-        comandaDiv.appendChild(nombreMercaderia);
-        comandaDiv.appendChild(mercaderias);
+    let infoComanda = document.createElement("div");
+    infoComanda.setAttribute("id", "infoComanda");
 
-        comandasContainer.appendChild(comandaDiv);
-    })
+    infoComanda.appendChild(fecha);
+    infoComanda.appendChild(descripcion);
+    infoComanda.appendChild(total);
+
+    let comandaDiv = document.createElement("div");
+    comandaDiv.setAttribute("id", "comandaDiv");
+
+    comandaDiv.appendChild(titulo);
+    comandaDiv.appendChild(infoComanda);
+    comandaDiv.appendChild(nombreMercaderia);
+    comandaDiv.appendChild(mercaderias);
+
+    comandasContainer.appendChild(comandaDiv);
+  })
 }
 
 function limitarCaracteres(texto, limite) {
-    if (texto.length <= limite) {
-      return texto;
-    } else {
-      return texto.slice(0, limite);
-    }
+  if (texto.length <= limite) {
+    return texto;
+  } else {
+    return texto.slice(0, limite);
   }
+}
 
-  function limitarCaracteresNombres(texto, limite) {
-    if (texto.length <= limite) {
-      return texto;
-    } else {
-      return texto.slice(0, limite) + "...";
-    }
+function limitarCaracteresNombres(texto, limite) {
+  if (texto.length <= limite) {
+    return texto;
+  } else {
+    return texto.slice(0, limite) + "...";
   }
+}
 
-  export default imprimirComandas;
+export default imprimirComandas;
