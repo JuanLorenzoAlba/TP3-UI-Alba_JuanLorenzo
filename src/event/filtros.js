@@ -13,8 +13,11 @@ function filtros() {
             if (index === 1) {
                 mercaderias = await mercaderiaApi.GetMercaderiaByOrden("desc");
             }
-            if (index > 1) {
-                mercaderias = await mercaderiaApi.GetMercaderiaByTipo(index - 1);
+            if (index === 2) {
+                mercaderias = await mercaderiaApi.GetMercaderia();
+            }
+            if (index > 2) {
+                mercaderias = await mercaderiaApi.GetMercaderiaByTipo(index - 2);
             }
             imprimirMercaderias(mercaderias);
         });

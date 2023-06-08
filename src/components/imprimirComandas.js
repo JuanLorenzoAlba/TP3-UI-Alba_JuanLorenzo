@@ -55,7 +55,7 @@ function imprimirComandas(comandas) {
     nombreMercaderia.innerText = "Mercaderias Pedidas: ";
 
     let fecha = document.createElement("p");
-    fecha.innerText = "Fecha: " + limitarCaracteres(comanda.fecha, 10);
+    fecha.innerText = "Fecha: " + limitarCaracteresFecha(comanda.fecha, 10);
 
     let descripcion = document.createElement("p");
     descripcion.innerText = "Forma de Entrega: " + comanda.formaEntrega.descripcion;
@@ -82,7 +82,7 @@ function imprimirComandas(comandas) {
   })
 }
 
-function limitarCaracteres(texto, limite) {
+function limitarCaracteresFecha(texto, limite) {
   if (texto.length <= limite) {
     return texto;
   } else {
