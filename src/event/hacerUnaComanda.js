@@ -34,21 +34,19 @@ function hacerUnaComanda() {
         }
 
         if (valorSeleccionado === undefined) {
-            swal({
+            Swal.fire({
                 title: "Hubo un error",
                 text: "Falta elegir la forma de entrega",
                 icon: "error",
-                button: "Continuar",
-            });
+            })
         }
         else {
             comandaApi.CrearComanda(listasTotales, valorSeleccionado)
-            swal({
-                title: "Comanda Creada",
-                text: "Gracias por Comprar",
-                icon: "success",
-                button: "Continuar",
-            });
+            Swal.fire(
+                'Comanda Creada',
+                'Gracias por Comprar',
+                'success',
+            )
         }
 
         pedidoImagen.style.display = "block";
