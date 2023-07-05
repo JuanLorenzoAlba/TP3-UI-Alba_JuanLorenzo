@@ -43,12 +43,41 @@ const getMercaderiaByOrden = async (orden) => {
     return result;
 };
 
+const getMercaderiaFiltros = async (tipo, nombre, orden) => {
+
+    var url = `https://localhost:7194/api/v1/Mercaderia?`;
+    if (tipo) {
+        url += `tipo=${tipo}`;
+    }
+
+    if (orden) {
+        if (tipo) { url += `&`; }
+        url += `orden=${orden}`;
+    }
+
+    if (nombre) {
+        if (tipo || orden) { url += `&`; }
+        url += `nombre=${nombre}`;
+    }
+
+    console.log(url);
+
+    let result = []
+    let response = await fetch(url);
+    if (response.ok) {
+        result = await response.json();
+    }
+    return result;
+}
+
 const mercaderiaApi = {
     GetMercaderia: getMercaderia,
     GetMercaderiaById: getMercaderiaById,
     GetMercaderiaByTipo: getMercaderiaByTipo,
     GetMercaderiaByNombre: getMercaderiaByNombre,
-    GetMercaderiaByOrden: getMercaderiaByOrden
+    GetMercaderiaByOrden: getMercaderiaByOrden,
+    GetMercaderiaFiltros: getMercaderiaFiltros
+
 };
 
 export default mercaderiaApi;

@@ -1,3 +1,10 @@
+.orden-botones label:hover {
+  border: 2px solid var(--orange-c);
+  background: var(--tertiary-c);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
 .nav-botones {
   display: flex;
   flex-direction: column;
@@ -25,11 +32,16 @@
   box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
-.nav-botones button:focus {
+.nav-botones button.active {
   border: 2px solid var(--orange-c);
   background: var(--tertiary-c);
 }
 
-.orden-botones button {
-  width: 94px;
+.orden-botones {
+  display: flex;
+}
+
+.orden-botones label{
+  width: 70px;
+  margin: auto;
 }

@@ -12,21 +12,25 @@ ul.menu {
     display: flex;
     align-items: center;
     padding: .5rem 1rem;
-    background: var(--secondary-c);
-    border-radius: 5px;
-    border: 2px solid var(--main-c);
+    background: rgba(0, 0, 0, 0.200);
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-bottom: 2px solid var(--orange-c);
     transition: .2s;
 }
 
 .menu li:hover {
     border: 2px solid var(--orange-c);
-    background: var(--tertiary-c);
+    background-color: black;
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
 li.menu-item {
-    margin: .75rem;
+    margin-top: .75rem;
+}
+
+#contacto-boton{
+    margin-right: .75rem;
 }
 
 li.menu-item a {
@@ -35,11 +39,11 @@ li.menu-item a {
 
 .boton-menu {
     display: flex;
-    background: var(--secondary-c);
+    background: rgba(0, 0, 0, 0.200);
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-bottom: 2px solid var(--orange-c);
     padding: 1.3rem 1.5rem;
     font-size: 1rem;
-    border-radius: 5px;
-    border: 2px solid var(--main-c);
     justify-content: center;
     margin: auto;
     width: 7rem;
@@ -48,7 +52,7 @@ li.menu-item a {
 
 .boton-menu:hover {
     border: 2px solid var(--orange-c);
-    background: var(--tertiary-c);
+    background-color: black;
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.4);
 }

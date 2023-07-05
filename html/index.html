@@ -42,7 +42,7 @@
         <li class="menu-item"><a href="#">Inicio</a></li>
         <li class="menu-item"><a href="#menu-mercaderias">Carta</a></li>
         <li class="menu-item"><a href="comanda.html#comanda-dia">Comandas del Dia</a></li>
-        <li class="menu-item"><a href="#footer">Contacto</a></li>
+        <li class="menu-item" id="contacto-boton"><a href="#footer">Contacto</a></li>
       </ul>
     </header>
 
@@ -72,20 +72,23 @@
       <nav class="nav-menu">
         <div class="nav-botones">
           <div class="orden-botones">
-            <button class="boton-nav-1">🡇 Precio</button>
-            <button class="boton-nav-2">🡅 Precio</button>
+            <input type="radio" class="boton-nav" id="boton1" name="boton" value="ASC" checked>
+            <label for="boton1">🡇 Precio</label>
+
+            <input type="radio" class="boton-nav" id="boton2" name="boton" value="DESC">
+            <label for="boton2">🡅 Precio</label>
           </div>
-          <button class="boton-nav-3">Todos</button>
-          <button class="boton-nav-4">Entradas</button>
-          <button class="boton-nav-5">Minutas</button>
-          <button class="boton-nav-6">Pastas</button>
-          <button class="boton-nav-7">Parrilla</button>
-          <button class="boton-nav-8">Pizzas</button>
-          <button class="boton-nav-9">Sandwich</button>
-          <button class="boton-nav-10">Ensaladas</button>
-          <button class="boton-nav-11">Bebidas</button>
-          <button class="boton-nav-12">Cerveza Artesanal</button>
-          <button class="boton-nav-13">Postres</button>
+          <button class="boton-nav">Todos</button>
+          <button class="boton-nav">Entradas</button>
+          <button class="boton-nav">Minutas</button>
+          <button class="boton-nav">Pastas</button>
+          <button class="boton-nav">Parrilla</button>
+          <button class="boton-nav">Pizzas</button>
+          <button class="boton-nav">Sandwich</button>
+          <button class="boton-nav">Ensaladas</button>
+          <button class="boton-nav">Bebidas</button>
+          <button class="boton-nav">Cerveza Artesanal</button>
+          <button class="boton-nav">Postres</button>
         </div>
       </nav>
 

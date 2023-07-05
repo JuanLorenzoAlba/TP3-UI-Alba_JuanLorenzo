@@ -1,3 +1,9 @@
+#menu-mercaderias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .fondo {
   background-color: var(--main-c);
 }

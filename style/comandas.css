@@ -1,3 +1,9 @@
+#comanda-dia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .comandas-container {
   background-color: var(--main-c);
 }
