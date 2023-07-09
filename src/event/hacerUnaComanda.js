@@ -23,35 +23,25 @@ function hacerUnaComanda() {
             return lista;
         }).reduce((accumulator, lista) => accumulator.concat(lista), []);
 
-        var opciones = document.getElementsByName("forma");
+        var opciones = document.querySelector('input[name="forma"]:checked');
 
-        var valorSeleccionado;
-        for (var i = 0; i < opciones.length; i++) {
-            if (opciones[i].checked) {
-                valorSeleccionado = opciones[i].value;
-                break;
-            }
-        }
-
-        if (valorSeleccionado === undefined) {
+        if (!opciones) {
             Swal.fire({
                 title: "Hubo un error",
                 text: "Falta elegir la forma de entrega",
                 icon: "error",
-            })
+            });
+        } else {
+            comandaApi.CrearComanda(listasTotales, opciones.value);
+            Swal.fire({
+                title: 'Comanda Creada',
+                text: 'Gracias por Comprar',
+                icon: 'success',
+            });
+            pedidoImagen.style.display = 'block';
+            pedidosInformacion.style.display = 'none';
+            pedidoFondo.style.background = 'var(--secondary-c)';
         }
-        else {
-            comandaApi.CrearComanda(listasTotales, valorSeleccionado)
-            Swal.fire(
-                'Comanda Creada',
-                'Gracias por Comprar',
-                'success',
-            )
-        }
-
-        pedidoImagen.style.display = "block";
-        pedidosInformacion.style.display = "none";
-        pedidoFondo.style.background = "var(--secondary-c)"
     });
 }
 

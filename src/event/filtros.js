@@ -15,7 +15,20 @@ function filtros() {
             let mercaderias;
             tipo = index;
             mercaderias = await mercaderiaApi.GetMercaderiaFiltros(tipo, nombre, orden);
-            imprimirMercaderias(mercaderias);
+            if (mercaderias.length === 0) {
+                let mercaderiasContainer = document.getElementById("mercaderias");
+                let mercaderiaDiv = document.createElement("div");
+                mercaderiasContainer.innerHTML = "";
+                let nombre = document.createElement("p");
+                nombre.innerText = `Ups, no hay mercaderias de ese tipo`;
+                nombre.setAttribute("id", "nombre-mercaderia");
+                mercaderiaDiv.appendChild(nombre);
+                mercaderiasContainer.appendChild(mercaderiaDiv);
+                mercaderiaDiv.classList.add("fade-in");
+            }
+            else {
+                imprimirMercaderias(mercaderias);
+            }
         });
     });
 

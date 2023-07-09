@@ -69,12 +69,15 @@ function imprimirPedidos(id, precio, nombre, botonPedido) {
       });
 
       botonComanda.addEventListener("click", () => {
-        monto = 0;
-        precioTotal.textContent = "Precio Total: $ " + 0;
-        while (pedidosContainer.firstChild) {
-          pedidosContainer.removeChild(pedidosContainer.firstChild);
+        var opciones = document.querySelector('input[name="forma"]:checked');
+        if (opciones) {
+          monto = 0;
+          precioTotal.textContent = `Precio Total: $ ${monto}`;
+          while (pedidosContainer.firstChild) {
+            pedidosContainer.firstChild.remove();
+          }
+          pedidoExistente = false;
         }
-        pedidoExistente = false;
       });
 
       let pedidosDiv = document.createElement("div");

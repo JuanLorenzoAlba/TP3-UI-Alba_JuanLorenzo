@@ -60,8 +60,6 @@ const getMercaderiaFiltros = async (tipo, nombre, orden) => {
         url += `nombre=${nombre}`;
     }
 
-    console.log(url);
-
     let result = []
     let response = await fetch(url);
     if (response.ok) {
